@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../static/css/admin.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="tudo">
+        <div id="form_fundo">
+            <div class="titulo">
+                <h1>Cadastrar Novo Usuário</h1>
+            </div>
+            <div id="form_frente">
+                <form action="/cadastrar" id="login" method="post">
+                    <div class="itens">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="itens">
+                        <label for="senha">Senha:</label>
+                        <input type="text" id="senha" name="senha" required>
+                    </div>
+                    <button type="submit" id="btn_login">
+                        CADASTRAR
+                    </button>
+                </form>
+                {% set menssagem = get_flashed_messages() %}
+                {% if menssagem %}
+                <div class="flash_alerta">
+                    {{menssagem[0]}}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div id="form_fundo">
+            <div class="titulo">
+                <h1>Lista de Usuários</h1>
+            </div>
+            <div class="usuarios">
+                {% if usuarios %}
+                {% for c in usuarios %}
+                <form action="/excluir" method="post">
+                    <ul>
+                        <input type="hidden" name="usuarioPexcluir" value="{{c}}">
+                        <li>Nome: {{c['nome']}}</li>
+                        <li>Senha: {{c['senha']}}</li>
+                        <button type="submit" id="btn_login2">excluir usuário</button>
+                    </ul>
+                </form>
+                {% endfor %}
+                {%else%}
+                <h2>não existem usuários cadastrados</h2>
+                {% endif %}
+            </div>
+        </div>
+        <div id="form_fundo">
+            <div class="titulo">
+                <h1>Upload de Arquivo</h1>
+            </div>
+            <div class="upload">
+                <form enctype="multipart/form-data" action="/upload" method="post">
+                    <label for="documento">escolher arquivo</label>
+                    <input type="file" name="documento" id="documento">
+                    <button type="submit" id="btn_login3">ENVIAR ARQUIVO</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

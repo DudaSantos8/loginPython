@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../static/css/home.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="form_fundo">
+        <div class="titulo">
+            <h1>Download De Arquivos</h1>
+        </div>
+        <div id="form_frente">
+            {% if arquivos %}
+            <form action="/download" method="post">
+                <select name="arquivosParaDownload" id="arquivosParaDownload" >
+                    {% for documento in arquivos %}
+                    <option value="nenhum" disabled selected>selecione um arquivo</option>
+                    <option value="{{documento}}">{{documento}}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Baixar Arquivo</button>
+            </form>
+            {% else %}
+            <h1 class="aviso">Nenhum arquivo no banco de dados para download</h1>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

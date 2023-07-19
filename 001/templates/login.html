@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../static/css/login.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="form_fundo">
+        <div class="titulo">
+            <h1>LOGIN</h1>
+        </div>
+        <div id="form_frente">
+            <form action="/login" id="login" method="post">
+                <div class="itens">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="itens">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required>
+                </div>
+                <button type="submit" id="btn_login">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>ENTRAR
+                </button>
+            </form>
+            {% set menssagem = get_flashed_messages() %}
+            {% if menssagem %}
+            <div class="flash_alerta">
+                {{menssagem[0]}}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+@import url('login.css');
+
+h1 {
+    font-size: 34px;
+}
+
+#arquivosParaDownload {
+    font-size: 21px;
+    background-color: rgb(186, 218, 231);
+    width: 300px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+}
+
+.aviso {
+    color: rgb(255, 0, 0);
+    font-size: 30px;
+    margin-left: 30px;
+}
